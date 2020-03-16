@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../tournament.interface';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-tournament-list',
@@ -13,9 +14,16 @@ export class TournamentListComponent implements OnInit {
     name: 'Windstorm'
   };
 
+  heroes = HEROES;
+  selectedHero: Hero;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
 
 }
