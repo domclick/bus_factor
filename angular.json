@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tournaments-app": {
+    "bus-factor-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tournaments-app",
+            "outputPath": "dist/bus-factor-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tournaments-app:build"
+            "browserTarget": "bus-factor-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tournaments-app:build:production"
+              "browserTarget": "bus-factor-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tournaments-app:build"
+            "browserTarget": "bus-factor-app:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tournaments-app:serve"
+            "devServerTarget": "bus-factor-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tournaments-app:serve:production"
+              "devServerTarget": "bus-factor-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "tournaments-app",
+  "defaultProject": "bus-factor-app",
   "cli": {
     "analytics": "24693b70-901a-4134-8e61-70604d7816f4"
   }

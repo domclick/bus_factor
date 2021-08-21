@@ -1,11 +1,11 @@
-/* HeroesComponent's private CSS styles */
-.heroes {
+/* private CSS styles */
+.bus_factors {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
-.heroes li {
+.bus_factors li {
   position: relative;
   cursor: pointer;
   background-color: #EEE;
@@ -15,13 +15,13 @@
   border-radius: 4px;
 }
 
-.heroes li:hover {
+.bus_factors li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
 
-.heroes a {
+.bus_factors a {
   color: #333;
   text-decoration: none;
   position: relative;
@@ -29,11 +29,11 @@
   width: 250px;
 }
 
-.heroes a:hover {
+.bus_factors a:hover {
   color: #607D8B;
 }
 
-.heroes .badge {
+.bus_factors .badge {
   display: inline-block;
   font-size: small;
   color: white;
@@ -71,3 +71,14 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
+
+.skills {
+  float: left;
+  width: 50%;
+}
+
+.employees {
+  float: right;
+  width: 50%;
+}
+

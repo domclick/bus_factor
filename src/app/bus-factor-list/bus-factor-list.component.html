@@ -1,0 +1,41 @@
+<div class="skills">
+  <div>
+    <label>Название Навыка:
+      <input #skillName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addSkill(skillName.value); skillName.value=''">
+      Добавить
+    </button>
+  </div>
+  <ul class="bus_factors">
+    <li *ngFor="let skill of skills">
+      <a routerLink="/skills/{{skill.id}}">
+        <span class="badge">{{skill.id}}</span> {{skill.name}}
+      </a>
+      <button class="delete" title="delete skill"
+              (click)="deleteSkill(skill)">x</button>
+    </li>
+  </ul>
+</div>
+
+<div class="employees">
+  <div>
+    <label>Сотрудник:
+      <input #employeeName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addEmployee(employeeName.value); employeeName.value=''">
+      Добавить
+    </button>
+  </div>
+  <ul class="bus_factors">
+    <li *ngFor="let employee of employees">
+      <a routerLink="/employees/{{employee.id}}">
+        <span class="badge">{{employee.id}}</span> {{employee.name}}
+      </a>
+      <button class="delete" title="delete employee"
+              (click)="deleteEmployee(employee)">x</button>
+    </li>
+  </ul>
+</div>

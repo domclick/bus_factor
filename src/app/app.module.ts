@@ -3,24 +3,26 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import {TournamentListComponent} from './tournament-list/tournament-list.component';
+import { SkillDetailComponent } from './skill-detail/skill-detail.component';
+import {BusFactorListComponent} from './bus-factor-list/bus-factor-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import {AppRoutingModule} from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { SkillSearchComponent } from './skill-search/skill-search.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TournamentListComponent,
-    HeroDetailComponent,
+    BusFactorListComponent,
+    SkillDetailComponent,
+    EmployeeDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    SkillSearchComponent
   ],
   imports: [
     BrowserModule,

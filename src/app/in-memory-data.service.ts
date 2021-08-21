@@ -1,33 +1,47 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Hero } from './tournament.interface';
+import { Skill } from './bus_factor.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const heroes = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+    const skills = [
+      { id: 11, name: 'service_hub' },
+      { id: 12, name: 'moik' },
+      { id: 13, name: 'ekp' },
+      { id: 14, name: 'doc_editor' },
+      { id: 15, name: 'pingator' },
+      { id: 16, name: 'cas' },
+      { id: 17, name: 'quest_backend' },
+      { id: 18, name: 'pypo' },
+      { id: 19, name: 'crm_chief' },
+      { id: 20, name: 'credo' }
     ];
-    return {heroes};
+
+    const employees = [
+      { id: 101, name: 'Nick' },
+      { id: 102, name: 'Artem' },
+      { id: 103, name: 'Oleg' },
+      { id: 104, name: 'Ivan' },
+      { id: 105, name: 'Max' },
+      { id: 106, name: 'Roman' },
+      { id: 107, name: 'Ivan' },
+      { id: 108, name: 'Denis' },
+      { id: 109, name: 'Pavel' },
+      { id: 110, name: 'Nikita' }
+    ];
+    return {skills, employees};
   }
 
-  // Overrides the genId method to ensure that a hero always has an id.
-  // If the heroes array is empty,
+  // Overrides the genId method to ensure that a skill always has an id.
+  // If the skills array is empty,
   // the method below returns the initial number (11).
-  // if the heroes array is not empty, the method below returns the highest
-  // hero id + 1.
-  genId(heroes: Hero[]): number {
-    return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
+  // if the skills array is not empty, the method below returns the highest
+  // skill id + 1.
+  genId(skills: Skill[]): number {
+    console.log('skills', skills);
+    return skills.length > 0 ? Math.max(...skills.map(skill => skill.id)) + 1 : 11;
   }
 }
