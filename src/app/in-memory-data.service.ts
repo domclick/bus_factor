@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Skill } from './bus_factor.interface';
+import { Employee, Skill } from './shared/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +32,14 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 109, name: 'Pavel' },
       { id: 110, name: 'Nikita' }
     ];
-    return {skills, employees};
+
+    const skillsEmployees = [
+      { id: 1000, skill_id: 11, employee_id: 11 },
+      { id: 1001, skill_id: 12, employee_id: 11 },
+      { id: 1002, skill_id: 113, employee_id: 12 },
+      { id: 1003, skill_id: 114, employee_id: 13 },
+    ];
+    return {skills, employees, skillsEmployees};
   }
 
   // Overrides the genId method to ensure that a skill always has an id.
@@ -40,8 +47,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // the method below returns the initial number (11).
   // if the skills array is not empty, the method below returns the highest
   // skill id + 1.
-  genId(skills: Skill[]): number {
-    console.log('skills', skills);
-    return skills.length > 0 ? Math.max(...skills.map(skill => skill.id)) + 1 : 11;
+  genId(employees: Employee[]): number {
+    return employees.length > 0 ? Math.max(...employees.map(skill => skill.id)) + 1 : 11;
   }
 }

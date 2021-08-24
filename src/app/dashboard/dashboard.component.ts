@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from '../bus_factor.interface';
+import { Skill } from '../shared/interfaces';
 import { SkillsService } from '../shared/services/skills.service';
 
 @Component({

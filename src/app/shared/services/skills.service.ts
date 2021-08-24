@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Skill } from '../../bus_factor.interface';
+import { FbCreateResponse, Skill } from '../interfaces';
 import { Observable, of } from 'rxjs';
 import {MessageService} from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,10 @@ export class SkillsService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  // private skillsUrl = `${environment.fbDbUrl}/skills.json`;
   private skillsUrl = 'api/skills';  // URL to web api
+  private entityName = 'skills';
+
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -46,24 +50,38 @@ export class SkillsService {
 
   /** GET skills from the server */
   getSkills(): Observable<Skill[]> {
-    return this.http.get<Skill[]>(this.skillsUrl)
+    return this.http.get<Skill[]>(`${environment.fbDbUrl}/${this.entityName}.json`)
       .pipe(
         tap(_ => this.log('fetched skills')),
+        map((response: {[key: string]: any}) => {
+          return Object.
+          keys(response)
+            .map(key => ({
+              ...response[key],
+              id: key,
+            }));
+        }),
         catchError(this.handleError<Skill[]>('getSkills', []))
       );
   }
 
-  getSkill(id: number): Observable<Skill> {
-    const url = `${this.skillsUrl}/${id}`;
+  getSkill(id: string): Observable<Skill> {
+    const url = `${environment.fbDbUrl}/${this.entityName}/${id}.json`;
     return this.http.get<Skill>(url).pipe(
       tap(_ => this.log(`fetched skill id=${id}`)),
+      map((skill: Skill) => {
+        return {
+          ...skill,
+          id
+        };
+      }),
       catchError(this.handleError<Skill>(`getSkill id=${id}`))
     );
   }
 
   /** PUT: update the skill on the server */
   updateSkill(skill: Skill): Observable<any> {
-    return this.http.put(this.skillsUrl, skill, this.httpOptions).pipe(
+    return this.http.patch(`${environment.fbDbUrl}/skills/${skill.id}.json`, skill, this.httpOptions).pipe(
       tap(_ => this.log(`updated skill id=${skill.id}`)),
       catchError(this.handleError<any>('updateSkill'))
     );
@@ -71,16 +89,22 @@ export class SkillsService {
 
   /** POST: add a new skill to the server */
   addSkill(skill: Skill): Observable<Skill> {
-    return this.http.post<Skill>(this.skillsUrl, skill, this.httpOptions).pipe(
+    return this.http.post<Skill>(`${environment.fbDbUrl}/skills.json`, skill, this.httpOptions).pipe(
       tap((newSkill: Skill) => this.log(`added skill w/ id=${newSkill.id}`)),
+      map((response: FbCreateResponse) => {
+        return {
+          ...skill,
+          id: response.name,
+        };
+      }),
       catchError(this.handleError<Skill>('addSkill'))
     );
   }
 
   /** DELETE: delete the skill from the server */
-  deleteSkill(skill: Skill | number): Observable<Skill> {
-    const id = typeof skill === 'number' ? skill : skill.id;
-    const url = `${this.skillsUrl}/${id}`;
+  deleteSkill(skill: Skill | string): Observable<Skill> {
+    const id = typeof skill === 'string' ? skill : skill.id;
+    const url = `${environment.fbDbUrl}/${this.entityName}/${id}.json`;
 
     return this.http.delete<Skill>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted skill id=${id}`)),
@@ -96,8 +120,8 @@ export class SkillsService {
     }
     return this.http.get<Skill[]>(`${this.skillsUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
-        this.log(`found skilles matching "${term}"`) :
-        this.log(`no skilles matching "${term}"`)),
+        this.log(`found skills matching "${term}"`) :
+        this.log(`no skills matching "${term}"`)),
       catchError(this.handleError<Skill[]>('searchSkills', []))
     );
   }

@@ -6,7 +6,7 @@ import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
 
-import { Skill } from '../bus_factor.interface';
+import { Skill } from '../shared/interfaces';
 import { SkillsService } from '../shared/services/skills.service';
 
 @Component({

@@ -7,7 +7,7 @@ import { Environment } from './interface';
 export const environment: Environment = {
   production: false,
   apiKey: 'AIzaSyAljUjvyqJ9gEufL32OoOkLeINEibkKZ0U',
-  fbDbUrl: 'https://bus-factor-default-rtdb.europe-west1.firebasedatabase.app',
+  fbDbUrl: 'http://localhost:9000',
 };
 
 /*

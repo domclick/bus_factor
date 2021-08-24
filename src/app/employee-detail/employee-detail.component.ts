@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Employee } from '../bus_factor.interface';
+import { Employee } from '../shared/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EmployeesService } from '../shared/services/employee.service';

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Skill } from '../bus_factor.interface';
+import { Skill } from '../shared/interfaces';
 import { SkillsService } from '../shared/services/skills.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -23,7 +23,7 @@ export class SkillDetailComponent implements OnInit {
   }
 
   getSkill(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.skillService.getSkill(id)
       .subscribe(skill => this.skill = skill);
   }

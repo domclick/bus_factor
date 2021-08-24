@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Employee } from '../../bus_factor.interface';
+import { Employee } from '../interfaces';
 import { Observable, of } from 'rxjs';
 import {MessageService} from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

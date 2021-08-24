@@ -1,9 +1,13 @@
 export interface Skill {
-  id: number;
+  id: string;
   name: string;
 }
 
 export interface Employee {
   id: number;
+  name: string;
+}
+
+export interface FbCreateResponse {
   name: string;
 }
