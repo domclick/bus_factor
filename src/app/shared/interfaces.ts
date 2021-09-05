@@ -11,3 +11,10 @@ export interface Employee {
 export interface FbCreateResponse {
   name: string;
 }
+
+export interface EmployeeSkill {
+  id?: string;
+  skillId: string;
+  employeeId: string;
+}
+

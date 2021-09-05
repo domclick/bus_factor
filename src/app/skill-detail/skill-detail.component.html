@@ -11,3 +11,22 @@
   <br />
   <button (click)="save()">save</button>
 </div>
+<h2>Сотрудники и их навыки:</h2>
+<div>
+  <ul class="bus_factors">
+    <li *ngFor="let employee of employees">
+
+      <button class="square" (click)="changeEmployeeSkill(employee.id)">
+        {{employee.name}}<img class="square-img" src="assets/icons/done.svg" *ngIf="employeeIdsHasSkill.includes(employee.id); else noSkill">
+        <ng-template #noSkill><img class="square-img" src="assets/icons/icon_warning_red.svg"></ng-template>
+      </button>
+<!--      <button class="square" *ngIf="!employeeIdsHasSkill.includes(employee.id)"><img class="square-img" src="assets/icons/icon_warning_red.svg">{{employee.name}}</button>-->
+
+
+<!--      <button class="delete" title="delete employee"-->
+<!--              (click)="deleteEmployee(employee)">x</button>-->
+    </li>
+  </ul>
+</div>
+
+{{employeeSkills|json}}
