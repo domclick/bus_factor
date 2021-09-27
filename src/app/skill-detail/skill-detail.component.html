@@ -11,7 +11,7 @@
   <br />
   <button (click)="save()">save</button>
 </div>
-<h2>Сотрудники и их навыки:</h2>
+<h2>Сотрудники и их навык:</h2>
 <div>
     <div class="employee" *ngFor="let employee of employees" (click)="changeEmployeeSkill(employee.id)">
         <img src="assets/icons/done.svg" *ngIf="employeeIdsHasSkill.includes(employee.id); else noSkill">

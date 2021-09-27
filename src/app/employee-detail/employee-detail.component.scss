@@ -1,0 +1,19 @@
+/* private CSS styles */
+.skill {
+  display: flex;
+  align-items: center;
+
+  border-radius: 5px;
+  background-color: gray;
+  height: 30px;
+  width: 200px;
+  +.skill {
+    margin-top: 8px;
+
+  }
+
+  img {
+    margin-right: 8px;
+  }
+
+}
