@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee, EmployeeSkill, Skill } from '../shared/interfaces';
 import { EmployeesService } from '../shared/services/employee.service';
 import { EmployeeSkillsService } from '../shared/services/employee-skills.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-bus-factor-list',
@@ -13,6 +14,8 @@ export class BusFactorListComponent implements OnInit {
   skills: Skill[];
   employees: Employee[];
   employeeSkills: EmployeeSkill[];
+  employeesHasSkills = {};
+  skillTeachedByEmployee = {};
 
   constructor(
     private skillsService: SkillsService,
@@ -21,9 +24,37 @@ export class BusFactorListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSkills();
-    this.getEmployees();
-    this.getEmployeeSkills();
+    forkJoin([
+      this.skillsService.getSkills(),
+      this.employeesService.getEmployees(),
+      this.employeeSkillsService.getEmployeeSkills()])
+      .subscribe(([skills, empoyees, employeeSkills]) => {
+        this.skills = skills;
+        this.employees = empoyees;
+        this.employeeSkills = employeeSkills;
+        this.calculateSkillsData();
+      });
+  }
+
+  calculateSkillsData(): void {
+    this.employeesHasSkills = {};
+    this.skillTeachedByEmployee = {};
+
+    if (this.employeeSkills) {
+      for (const es of this.employeeSkills) {
+        if (this.employeesHasSkills.hasOwnProperty(es.employeeId)) {
+          this.employeesHasSkills[es.employeeId] += 1;
+        } else {
+          this.employeesHasSkills[es.employeeId] = 1;
+        }
+
+        if (this.skillTeachedByEmployee.hasOwnProperty(es.skillId)) {
+          this.skillTeachedByEmployee[es.skillId] += 1;
+        } else {
+          this.skillTeachedByEmployee[es.skillId] = 1;
+        }
+      }
+    }
   }
 
   getSkills(): void {
@@ -41,8 +72,20 @@ export class BusFactorListComponent implements OnInit {
   }
 
   deleteSkill(skill: Skill): void {
+    const skillId = typeof skill === 'string' ? skill : skill.id;
+
     this.skills = this.skills.filter(h => h !== skill);
     this.skillsService.deleteSkill(skill).subscribe();
+
+    for (const es of this.employeeSkills) {
+      if (es.skillId === skillId) {
+        this.employeeSkillsService.deleteEmployeeSkill(es.id).subscribe();
+      }
+    }
+    this.skills = this.skills.filter(s => s !== skill);
+    this.skillsService.deleteSkill(skill).subscribe();
+    this.employeeSkills = this.employeeSkills.filter(es => es.skillId !== skillId);
+    this.calculateSkillsData();
   }
 
   getEmployees(): void {
@@ -53,7 +96,6 @@ export class BusFactorListComponent implements OnInit {
   getEmployeeSkills(): void {
     this.employeeSkillsService.getEmployeeSkills()
       .subscribe(employeeSkills => this.employeeSkills = employeeSkills);
-    console.log('getEmployeeSkills func', this.employeeSkills);
   }
 
   addEmployee(name: string): void {
@@ -66,7 +108,15 @@ export class BusFactorListComponent implements OnInit {
   }
 
   deleteEmployee(employee: Employee): void {
+    const employeeId = typeof employee === 'string' ? employee : employee.id;
+    for (const es of this.employeeSkills) {
+      if (es.employeeId === employeeId) {
+        this.employeeSkillsService.deleteEmployeeSkill(es.id).subscribe();
+      }
+    }
     this.employees = this.employees.filter(h => h !== employee);
     this.employeesService.deleteEmployee(employee).subscribe();
+    this.employeeSkills = this.employeeSkills.filter(es => es.employeeId !== employeeId);
+    this.calculateSkillsData();
   }
 }

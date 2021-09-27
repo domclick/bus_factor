@@ -11,7 +11,7 @@
   <ul class="bus_factors">
     <li *ngFor="let skill of skills">
       <a routerLink="/skills/{{skill.id}}">
-        <span class="badge">{{skill.id}}</span> {{skill.name}}
+        <span class="badge">{{skillTeachedByEmployee[skill.id] ||  0}}</span> {{skill.name}}
       </a>
       <button class="delete" title="delete skill"
               (click)="deleteSkill(skill)">x</button>
@@ -32,7 +32,7 @@
   <ul class="bus_factors">
     <li *ngFor="let employee of employees">
       <a routerLink="/employees/{{employee.id}}">
-        <span class="badge">{{employee.id}}</span> {{employee.name}}
+        <span class="badge">{{employeesHasSkills[employee.id] ||  0}}</span> {{employee.name}}
       </a>
       <button class="delete" title="delete employee"
               (click)="deleteEmployee(employee)">x</button>

@@ -52,7 +52,7 @@ export class SkillDetailComponent implements OnInit {
 
   changeEmployeeSkill(employeeId): void {
     for (const es of this.employeeSkills) {
-      if (es.employeeId === employeeId) {
+      if (es.employeeId === employeeId && es.skillId === this.skill.id) {
         this.employeeSkillsService.deleteEmployeeSkill(es.id).subscribe( () => {
             this.employeeSkills = this.employeeSkills.filter(eSkills => eSkills.employeeId !== employeeId);
             this.employeeIdsHasSkill = this.employeeIdsHasSkill.filter(e => e !== employeeId);
@@ -69,25 +69,6 @@ export class SkillDetailComponent implements OnInit {
       this.employeeIdsHasSkill.push(newEmployeeSkill.employeeId);
     });
   }
-
-  // getEmployees(): void {
-  //   this.employeesService.getEmployees()
-  //     .subscribe(employees => this.employees = employees);
-  // }
-  //
-  // getEmployeeSkills(): void {
-  //   this.employeeSkillsService.getEmployeeSkills()
-  //     .subscribe(employeeSkills => {
-  //       this.employeeSkills = employeeSkills;
-  //     }
-  //     );
-  // }
-
-  // getSkill(): void {
-  //   const id = this.route.snapshot.paramMap.get('id');
-  //   this.skillService.getSkill(id)
-  //     .subscribe(skill => this.skill = skill);
-  // }
 
   calculateEmployeesWithSkills(): void {
     if (this.employeeSkills) {
