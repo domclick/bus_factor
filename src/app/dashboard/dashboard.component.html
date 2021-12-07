@@ -1,9 +1,9 @@
-<h3>Top Skills</h3>
+<h3>Top Employees with skills</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let skill of skills" class="col-1-4"
-     routerLink="/skills/{{skill.id}}">
+  <a *ngFor="let employee of employees" class="col-1-4"
+     routerLink="/skills/{{employee.id}}">
     <div class="module skill">
-      <h4>{{skill.name}}</h4>
+      <h4>{{employee.name}}</h4>
     </div>
   </a>
 </div>
