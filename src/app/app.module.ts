@@ -14,8 +14,8 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { SkillSearchComponent } from './skill-search/skill-search.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CrmHeaderComponent } from './crm-header/crm-header.component';
-import { CrmSidebarComponent } from './crm-sidebar/crm-sidebar.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavigationItemComponent } from './navigation-item/navigation-item.component';
 import { EmployeeItemComponent } from './employee-item/employee-item.component';
 import { PluralizePipe } from './shared/pipes/pluralize.pipe';
@@ -30,8 +30,8 @@ import { SkillItemComponent } from './skill-item/skill-item.component';
     MessagesComponent,
     DashboardComponent,
     SkillSearchComponent,
-    CrmHeaderComponent,
-    CrmSidebarComponent,
+    HeaderComponent,
+    SidebarComponent,
     NavigationItemComponent,
     EmployeeItemComponent,
     PluralizePipe,
