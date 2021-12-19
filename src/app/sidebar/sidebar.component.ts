@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-crm-sidebar',
-  templateUrl: './crm-sidebar.component.html',
-  styleUrls: ['./crm-sidebar.component.scss']
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class CrmSidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 
   readonly navigations = [
     {
