@@ -1,0 +1,14 @@
+<div class="skill-container" (click)="onSkillClick()">
+  <div class="skill-info">
+    <div class="skill-name">{{ skill.name }}</div>
+    <div class="skill-skills">
+      {{ skillCount }} {{ skillCount | pluralize: ['сотрудник', 'сотрудника', 'сотрудников'] }}
+    </div>
+  </div>
+  <button class="delete" title="delete skill"
+          (click)="deleteSkill(skill)">
+    Удалить
+  </button>
+</div>
+
+

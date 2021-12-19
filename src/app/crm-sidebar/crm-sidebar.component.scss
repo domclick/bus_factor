@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background-color: #171d21;
+  padding: 12px;
+  border-radius: 5px;
+
+  width: 240px;
+  flex-shrink: 1;
+
+  .navigations {
+    margin: -12px;
+  }
+}

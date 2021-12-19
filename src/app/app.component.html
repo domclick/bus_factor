@@ -1,7 +1,10 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/bus_factors">Skills</a>
-</nav>
-<router-outlet></router-outlet>
-<!--<app-messages></app-messages>-->
+<div class="wrapper">
+  <app-crm-header></app-crm-header>
+
+  <div class="main-content">
+    <app-crm-sidebar></app-crm-sidebar>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

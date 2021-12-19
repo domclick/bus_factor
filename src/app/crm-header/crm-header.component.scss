@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  background-color: #171d21;;
+  color: #fff;
+  padding: 12px;
+  border-radius: 5px;
+
+  height: 60px;
+
+  .app-name {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    font-weight: bold;
+    margin: auto;
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+}

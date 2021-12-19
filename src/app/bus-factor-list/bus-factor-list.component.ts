@@ -107,7 +107,7 @@ export class BusFactorListComponent implements OnInit {
       });
   }
 
-  deleteEmployee(employee: Employee): void {
+  handleDeleteEmployee(employee: Employee): void {
     const employeeId = typeof employee === 'string' ? employee : employee.id;
     for (const es of this.employeeSkills) {
       if (es.employeeId === employeeId) {
@@ -115,8 +115,19 @@ export class BusFactorListComponent implements OnInit {
       }
     }
     this.employees = this.employees.filter(h => h !== employee);
-    this.employeesService.deleteEmployee(employee).subscribe();
     this.employeeSkills = this.employeeSkills.filter(es => es.employeeId !== employeeId);
+    this.calculateSkillsData();
+  }
+
+  handleDeleteSkill(skill: Skill): void {
+    const skillId = typeof skill === 'string' ? skill : skill.id;
+    for (const es of this.employeeSkills) {
+      if (es.skillId === skillId) {
+        this.employeeSkillsService.deleteEmployeeSkill(es.id).subscribe();
+      }
+    }
+    this.skills = this.skills.filter(h => h !== skill);
+    this.employeeSkills = this.employeeSkills.filter(es => es.skillId !== skillId);
     this.calculateSkillsData();
   }
 }

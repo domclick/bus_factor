@@ -1,28 +1,36 @@
-/* AppComponent's private CSS styles */
-h1 {
-  font-size: 1.2em;
-  margin-bottom: 0;
+:host {
+  box-sizing: border-box;
+  background-color: #22282b;
+  height: 100%;
+  padding: 20px;
+  display: block;
+  flex: 1;
 }
-h2 {
-  font-size: 2em;
-  margin-top: 0;
-  padding-top: 0;
+
+.wrapper {
+  min-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  height: 100%;
 }
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
+
+app-crm-sidebar {
+  margin-right: 24px;
 }
-nav a:visited, a:link {
-  color: #334953;
+
+app-crm-header {
+  margin-bottom: 24px;
+  flex-shrink: 0;
 }
-nav a:hover {
-  color: #039be5;
-  background-color: #cfd8dc;
-}
-nav a.active {
-  color: #039be5;
+
+.main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+
+  .content-container {
+    flex: 1;
+    overflow: hidden;
+  }
 }

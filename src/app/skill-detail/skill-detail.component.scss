@@ -1,116 +1,67 @@
-/* private CSS styles */
-.employee {
-  display: flex;
-  align-items: center;
-
+:host {
+  display: block;
   border-radius: 5px;
-  background-color: gray;
-  height: 30px;
-  width: 200px;
-  +.employee {
-    margin-top: 8px;
+  padding: 16px;
+  width: 260px;
+  min-height: 260px;
+  background: #171d21;
+  color: #ffffff;
+  margin: auto;
 
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
   }
 
-  img {
-    margin-right: 8px;
+  .skill-id, input, .skill-controls {
+    width: 240px;
+    margin-bottom: 4px;
   }
 
+  .skill-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .skill-box {
+    margin-top: 12px;
+    .skills-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+  }
+
+  input {
+    padding: 8px;
+    height: 30px;
+    margin-bottom: 4px;
+  }
+
+  button {
+    height: 30px;
+  }
+
+  .skill {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f8ff18;
+    border-radius: 5px;
+    +.skill {
+      margin-top: 8px;
+    }
+    .skill-name {
+      flex: 1;
+    }
+    img {
+      margin-right: 4px;
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      min-height: 16px;
+    }
+  }
 }
-//
-//
-//
-//.bus_factors {
-//  margin: 0 0 2em 0;
-//  list-style-type: none;
-//  padding: 0;
-//  width: 15em;
-//}
-//.bus_factors li {
-//  position: relative;
-//  cursor: pointer;
-//  background-color: #EEE;
-//  margin: .5em;
-//  padding: .3em 0;
-//  height: 1.6em;
-//  border-radius: 4px;
-//}
-//
-//.bus_factors li:hover {
-//  color: #607D8B;
-//  background-color: #DDD;
-//  left: .1em;
-//}
-//
-//.bus_factors a {
-//  color: #333;
-//  text-decoration: none;
-//  position: relative;
-//  display: block;
-//  width: 250px;
-//}
-//
-//.bus_factors a:hover {
-//  color: #607D8B;
-//}
-//
-//.bus_factors .square {
-//  height: 50px;
-//  width: 50px;
-//  background-color: #ffffff;
-//}
-//
-//.bus_factors .square-img {
-//  height: 20px;
-//  width: 20px;
-//}
-//
-//.bus_factors .badge {
-//  //display: inline-block;
-//  font-size: small;
-//  color: white;
-//  //padding: 0.8em 0.7em 0 0.7em;
-//  background-color: #ffffff;
-//  line-height: 1em;
-//  position: center;
-//  //left: -1px;
-//  //top: -4px;
-//  height: 1.8em;
-//  min-width: 16px;
-//  text-align: center;
-//  //margin-right: .8em;
-//  border-radius: 4px 0 0 4px;
-//}
-//
-//button {
-//  background-color: #eee;
-//  border: none;
-//  padding: 5px 10px;
-//  border-radius: 4px;
-//  cursor: pointer;
-//  cursor: hand;
-//  font-family: Arial;
-//}
-//
-//button:hover {
-//  background-color: #cfd8dc;
-//}
-//
-//button.delete {
-//  position: relative;
-//  left: 194px;
-//  top: -32px;
-//  background-color: gray !important;
-//  color: white;
-//}
-//
-//.skills {
-//  float: left;
-//  width: 50%;
-//}
-//
-//.employees {
-//  float: right;
-//  width: 50%;
-//}
-//

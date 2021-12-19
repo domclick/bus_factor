@@ -1,0 +1,14 @@
+<div class="employee-container" (click)="onEmployeeClick()">
+  <div class="employee-info">
+    <div class="employee-name">{{ employee.name }}</div>
+    <div class="employee-skills">
+      {{ skillCount }} {{ skillCount | pluralize: ['навык', 'навыка', 'навыков'] }}
+    </div>
+  </div>
+  <button class="delete" title="delete employee"
+          (click)="deleteEmployee(employee)">
+    Удалить
+  </button>
+</div>
+
+
