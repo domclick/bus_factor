@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.skill-container {
+  display: flex;
+  height: 50px;
+  width: 330px;
+  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
+  background-color: #171d21;
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+  }
+
+  .skill-info {
+    flex: 1;
+    .skill-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .skill-skills {
+      color: red;
+    }
+  }
+}

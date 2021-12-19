@@ -1,50 +1,33 @@
 <div class="skills">
-  <div>
-    <label>Название Навыка:
-      <input #skillName />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
+  <div class="skills-header">
+    <input #skillName placeholder="Название Навыка" />
     <button (click)="addSkill(skillName.value); skillName.value=''">
       Добавить
     </button>
   </div>
-  <ul class="bus_factors">
-    <li *ngFor="let skill of skills">
-      <a routerLink="/skills/{{skill.id}}">
-        <span class="badge">{{skillTeachedByEmployee[skill.id] ||  0}}</span> {{skill.name}}
-      </a>
-      <button class="delete" title="delete skill"
-              (click)="deleteSkill(skill)">x</button>
-    </li>
-  </ul>
+  <div class="bus_factors">
+    <app-skill-item *ngFor="let skill of skills"
+                       [skill]="skill"
+                       [skillCount]="skillTeachedByEmployee[skill.id] ||  0"
+                       (deleteButtonClick)="handleDeleteSkill($event)"
+    >
+    </app-skill-item>
+  </div>
 </div>
 
 <div class="employees">
-  <div>
-    <label>Сотрудник:
-      <input #employeeName />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
+  <div class="employees-header">
+    <input #employeeName placeholder="Сотрудник" />
     <button (click)="addEmployee(employeeName.value); employeeName.value=''">
       Добавить
     </button>
   </div>
-  <ul class="bus_factors">
-    <li *ngFor="let employee of employees">
-      <a routerLink="/employees/{{employee.id}}">
-        <span class="badge">{{employeesHasSkills[employee.id] ||  0}}</span> {{employee.name}}
-      </a>
-      <button class="delete" title="delete employee"
-              (click)="deleteEmployee(employee)">x</button>
-    </li>
-  </ul>
+  <div class="bus_factors">
+    <app-employee-item *ngFor="let employee of employees"
+                       [employee]="employee"
+                       [skillCount]="employeesHasSkills[employee.id] ||  0"
+                       (deleteButtonClick)="handleDeleteEmployee($event)"
+    >
+    </app-employee-item>
+  </div>
 </div>
-
-
-<!--<div>-->
-<!--  <ul>-->
-<!--    <li *ngFor="let i of employeeSkills">-->
-<!--      <span class="badge">{{i|json}}</span>-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--</div>-->

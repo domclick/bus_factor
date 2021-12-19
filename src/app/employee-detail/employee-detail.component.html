@@ -1,22 +1,17 @@
-<div *ngIf="employee">
-
-  <h2>{{employee.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{employee.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="employee.name" placeholder="name"/>
-    </label>
+<div class="card-title">title</div>
+<div class="employee-info">
+  <div class="employee-id"></div>
+  <input [(ngModel)]="employee.name" placeholder="Имя Сотрудника"/>
+  <div class="employee-controls">
+    <button (click)="goBack()">Назад</button>
+    <button (click)="save()">Сохранить</button>
   </div>
-  <button (click)="goBack()">go back</button>
-  <br />
-  <button (click)="save()">save</button>
 </div>
-<h2>Навыки сотрудника:</h2>
-<div>
-  <div class="skill" *ngFor="let skill of skills" (click)="changeEmployeeSkill(skill.id)">
-    <img src="assets/icons/done.svg" *ngIf="employeeHasSkillIds.includes(skill.id); else noSkill">
-    <ng-template #noSkill><img class="square-img" src="assets/icons/icon_warning_red.svg"></ng-template>
-    <div class="employee-name"> {{skill.name}}</div>
-  </div>
-
+<div class="skill-box">
+  <div class="skills-title">Навыки сотруника</div>
+    <div class="skill" *ngFor="let skill of skills" (click)="changeEmployeeSkill(skill.id)">
+      <img src="assets/icons/done.svg" *ngIf="employeeHasSkillIds.includes(skill.id); else noSkill">
+      <ng-template #noSkill><img class="square-img" src="assets/icons/icon_warning_red.svg"></ng-template>
+      <div class="employee-name"> {{skill.name}}</div>
+    </div>
 </div>

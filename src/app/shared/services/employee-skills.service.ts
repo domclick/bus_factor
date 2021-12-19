@@ -49,19 +49,16 @@ export class EmployeeSkillsService {
 
   /** GET employees from the server */
   getEmployeeSkills(): Observable<EmployeeSkill[]> {
-    console.log('employeeSkills', `${environment.fbDbUrl}/${this.entityName}.json`);
     return this.http.get<EmployeeSkill[]>(`${environment.fbDbUrl}/${this.entityName}.json`)
       .pipe(
         // tap((newEmployeeSkill: EmployeeSkill) => this.log(`getEmployeeSkills w/ id=${newEmployeeSkill.id}`)),
         map((response: {[key: string]: any}) => {
-          console.log('employeeSkills response', response);
           const x =  Object.
           keys(response)
             .map(key => ({
               ...response[key],
               id: key,
             }));
-          console.log('x', x);
           return x;
         }),
         catchError(this.handleError<EmployeeSkill[]>('getEmployeeSkills error', []))
@@ -73,7 +70,6 @@ export class EmployeeSkillsService {
     return this.http.post<EmployeeSkill>(`${environment.fbDbUrl}/${this.entityName}.json`, employeeSkill, this.httpOptions).pipe(
       tap((newEmployeeSkill: EmployeeSkill) => this.log(`addEmployeeSkill w/ id=${newEmployeeSkill.id}`)),
       map((response: any) => {
-        console.log('response addEmployeeSkill', response);
         return {
           // ...employeeSkill,
           id: response.name,
@@ -89,11 +85,9 @@ export class EmployeeSkillsService {
   deleteEmployeeSkill(employeeSkill: EmployeeSkill | string): Observable<EmployeeSkill> {
     const id = typeof employeeSkill === 'string' ? employeeSkill : employeeSkill.id;
     const url = `${environment.fbDbUrl}/${this.entityName}/${id}.json`;
-    console.log('delete url', url);
     return this.http.delete<EmployeeSkill>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted employeeSkill id=${id}`)),
       catchError(this.handleError<EmployeeSkill>('deleteEmployeeSkill'))
     );
   }
-
 }

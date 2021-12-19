@@ -1,19 +1,67 @@
-/* private CSS styles */
-.skill {
-  display: flex;
-  align-items: center;
-
+:host {
+  display: block;
   border-radius: 5px;
-  background-color: gray;
-  height: 30px;
-  width: 200px;
-  +.skill {
-    margin-top: 8px;
+  padding: 16px;
+  width: 260px;
+  min-height: 260px;
+  background: #171d21;
+  color: #ffffff;
+  margin: auto;
 
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
   }
 
-  img {
-    margin-right: 8px;
+  .employee-id, input, .employee-controls {
+    width: 240px;
+    margin-bottom: 4px;
   }
 
+  .employee-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .skill-box {
+    margin-top: 12px;
+    .skills-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+  }
+
+  input {
+    padding: 8px;
+    height: 30px;
+    margin-bottom: 4px;
+  }
+
+  button {
+    height: 30px;
+  }
+
+  .skill {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f8ff18;
+    border-radius: 5px;
+    +.skill {
+      margin-top: 8px;
+    }
+    .employee-name {
+      flex: 1;
+    }
+    img {
+      margin-right: 4px;
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      min-height: 16px;
+    }
+  }
 }
