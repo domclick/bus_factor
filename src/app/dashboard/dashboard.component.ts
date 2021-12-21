@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee, EmployeeSkill, Skill } from '../shared/interfaces';
+import { Employee, EmployeeSkill } from '../shared/interfaces';
 import { SkillsService } from '../shared/services/skills.service';
 import { forkJoin } from 'rxjs';
 import { EmployeeSkillsService } from '../shared/services/employee-skills.service';
@@ -15,12 +15,8 @@ export class DashboardComponent implements OnInit {
   employeeSkills: EmployeeSkill[];
   employeesHasSkills = {};
   employeesDictionary = {};
-
   bestEmployees = [];
-
   employeesHasSkill: Employee[] = [];
-  employeesHasNoSkill: Employee[] = [];
-  employeeIdsHasSkill = [];
 
   constructor(
     private skillsService: SkillsService,
