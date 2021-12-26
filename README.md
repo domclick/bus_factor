@@ -1,27 +1,39 @@
-# bus-factorApp
+# bus-factor App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+[![License: MIT](https://img.shields.io/badge/licence-MIT-orange)](https://github.com/domclick/bus_factor/blob/master/LICENSE.md)
+![](https://img.shields.io/badge/angular-9.0-blue)
 
-## Development server
+Пример приложения на Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Статья на Habr - https://habr.com/ru/company/domclick/blog/596573/
 
-## Code scaffolding
+## Основной функционал
+Ведение сотрудников и их скилов для выявления bus factor в команде
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Установка
+npm i
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Команды для запуска
+ng serve --configuration=local (или любая другая)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Author
+- [Semin Ivan](https://github.com/iasemin) (Author)
 
-## Running end-to-end tests
+## Contributor Notice
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+We are always open for contributions. Feel free to submit an issue
+or a PR. However, when submitting a PR we will ask you to sign
+our [CLA (Contributor License Agreement)][cla-text] to confirm that you
+have the rights to submit your contributions and to give us the rights
+to actually use them.
 
-## Further help
+When submitting a PR our special bot will ask you to review and to sign
+our [CLA][cla-text]. This will happen only once for all our GitHub repositories.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+
+Copyright Ⓒ 2021 ["Sberbank Real Estate Center" Limited Liability Company](https://domclick.ru/).
+
+[MIT License](./LICENSE.md)
