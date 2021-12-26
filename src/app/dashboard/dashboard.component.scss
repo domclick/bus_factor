@@ -15,9 +15,10 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-h3 {
+h2, h4 {
   text-align: center;
   margin-bottom: 0;
+  color: white;
 }
 h4 {
   position: relative;
@@ -60,4 +61,8 @@ h4 {
   .module {
     min-width: 60px;
   }
+}
+
+.skill-count {
+  color: #25beff;
 }

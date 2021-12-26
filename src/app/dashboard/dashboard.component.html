@@ -1,12 +1,10 @@
-<h3>Сотрудники, у которых стоит перенимать навыки</h3>
+<h2>Сотрудники, у которых стоит перенимать навыки</h2>
 <div class="grid grid-pad">
   <a *ngFor="let be of bestEmployees" class="col-1-4"
      routerLink="/employees/{{ be[0] }}">
     <div class="module skill">
-      <h4>{{ employeesDictionary[be[0]].name }}
-        <br />
-        {{ be[1] }} {{ be[1] | pluralize: ['навык', 'навыка', 'навыков'] }}
-      </h4>
+      <h4>{{ employeesDictionary[be[0]].name }}</h4>
+      <h4 class="skill-count">{{ be[1] }} {{ be[1] | pluralize: ['навык', 'навыка', 'навыков'] }}</h4>
     </div>
   </a>
 </div>
