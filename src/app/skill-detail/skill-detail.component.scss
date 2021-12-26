@@ -15,8 +15,12 @@
   }
 
   .skill-id, input, .skill-controls {
-    width: 240px;
+    width: 100%;
     margin-bottom: 4px;
+  }
+
+  input {
+    box-sizing: border-box;
   }
 
   .skill-controls {
@@ -42,13 +46,14 @@
 
   button {
     height: 30px;
+    width: 84px;
   }
 
   .skill {
     padding: 6px;
     display: flex;
     align-items: center;
-    border: 1px solid #f8ff18;
+    border: 1px solid #25beff;
     border-radius: 5px;
     +.skill {
       margin-top: 8px;
@@ -62,6 +67,9 @@
       height: 16px;
       min-width: 16px;
       min-height: 16px;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 }
