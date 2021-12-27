@@ -1,6 +1,14 @@
 {
-  "name": "bus-factor-app",
+  "name": "@domclick/bus_factor",
   "version": "0.0.0",
+  "description": "Angular example app",
+  "license": "MIT",
+  "author": "Sberbank Real Estate Centre LLC <iasemin@domclick.ru>",
+  "contributors": [],
+  "homepage": "https://github.com/domclick/bus_factor",
+  "repository": "https://github.com/domclick/bus_factor.git",
+  "bugs": "https://github.com/domclick/bus_factor/issues",
+  "main": "src/main.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
