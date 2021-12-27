@@ -1,7 +1,7 @@
 # bus-factor App
 
 [![License: MIT](https://img.shields.io/badge/licence-MIT-orange)](https://github.com/domclick/bus_factor/blob/master/LICENSE.md)
-![](https://img.shields.io/badge/angular-9.0-blue)
+![](https://img.shields.io/badge/angular-13.1-blue)
 
 Пример приложения на Angular.
 
